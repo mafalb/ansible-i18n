@@ -2,13 +2,13 @@
 ---
 
 sudo: required
+language: minimal
+services:
+  - docker
 
 env:
   - distribution: debian
     version: stretch
-
-services:
-  - docker
 
 before_install:
   - container_id=$(mktemp)
@@ -17,4 +17,4 @@ before_install:
   - echo ${container_id}
   - cat ${container_id}
   - sudo docker ps
-  - sudo docker exec "$(cat ${container_id})" "uname -a"
+  - sudo docker exec "$(cat ${container_id})" "/bin/uname -a"
