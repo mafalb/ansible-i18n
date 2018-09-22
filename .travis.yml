@@ -1,0 +1,17 @@
+#! vim: set ft=yaml ts=2:
+---
+
+sudo: required
+
+env:
+  - distribution: debian
+    version: stretch
+
+services:
+  - docker
+
+before_install:
+  - container_id=$(mktemp)
+  - sudo docker pull ${distribution}:${version}
+  - sudo docker run -d ${distribution}:${version} /bin/sh -c "/bin/bash"
+  - sudo docker exec "$(cat ${container_id})" false'
