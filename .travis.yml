@@ -18,3 +18,6 @@ before_install:
   - cat ${container_id}
   - sudo docker ps
   - sudo docker exec "$(cat ${container_id})" true
+
+script:
+  - /bin/false
