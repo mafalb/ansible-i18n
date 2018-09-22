@@ -14,4 +14,4 @@ before_install:
   - container_id=$(mktemp)
   - sudo docker pull ${distribution}:${version}
   - sudo docker run -d ${distribution}:${version} /bin/sh -c "/bin/bash"
-  - sudo docker exec "$(cat ${container_id})" false'
+  - sudo docker exec "$(cat ${container_id})" false
