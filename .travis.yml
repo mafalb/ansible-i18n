@@ -21,6 +21,7 @@ before_install:
 
 script:
   - sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/i18n/tests/test.yml --syntax-check
+  - sudo docker exec "$(cat ${container_id})" ansible-lint --force-color -v /etc/ansible/roles/i18n/tests/test.yml
   - sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/i18n/tests/test.yml
   - >
     sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/i18n/tests/test.yml
