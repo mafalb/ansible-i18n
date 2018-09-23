@@ -6,6 +6,7 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends \
     libssl-dev \
     python-dev \
     python-pip \
+    python-setuptools \
     git \
     systemd \
  && rm -rf /var/lib/apt/lists/*
