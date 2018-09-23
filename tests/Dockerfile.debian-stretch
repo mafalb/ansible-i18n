@@ -1,7 +1,6 @@
 FROM debian:stretch
 
 RUN apt-get update -y && apt-get install -y --no-install-recommends \
-    software-properties-common \
     build-essential \
     libffi-dev \
     libssl-dev \
