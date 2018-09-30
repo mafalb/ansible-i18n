@@ -1,4 +1,14 @@
 #! vim: set ft=yaml ts=2:
 ---
 
-- debug: var=ansible_hostname
+- debug: var=i18n.locales
+  tags:
+    - never
+    - debug
+
+- name: Ensure a locale exists
+  when: ansible_distribution + ansible_distribution_major_version in i18n.platforms
+  with_items: "{{ i18n.locales }}"
+  locale_gen:
+    name: "{{ item }}"
+    state: present
